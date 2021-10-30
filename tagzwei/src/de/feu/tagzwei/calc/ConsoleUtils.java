@@ -3,7 +3,10 @@ package de.feu.tagzwei.calc;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-public class ConsoleUtils {
+public final class ConsoleUtils {
+	private ConsoleUtils() {
+		// should not be instantiated
+	}
 
 	public static int getNumberFromConsole(Scanner sc) {
 		Integer number = null;

@@ -1,22 +1,38 @@
 package de.feu.tagzwei.student;
 
 public class StudentenVerwaltung {
-	private static final String FB_WINF = "WIN";
-	private static final String FB_INF = "INF";
 
 	public static void main(String[] args) {
 		StudentRepository repo = new StudentRepository();
 		try (StudentUi ui = new StudentUi()) {
+			AbstractPerson pers = new AbstractPerson("Peter") {
+				// anonyme Klasse erzeugt (StudentenVerwaltung$1), Kann instantiiert werden
+			};
+
 			String[] data = ui.getStudentData();
 
-			Student peter = repo.createStudent(data[0], data[1]);
+			AbstractPerson peter = repo.createStudent(data[0], data[1]);
+			peter.getName();
+			Student studentPeter = (Student) peter;
+			studentPeter.getMatrikelnummer();
+			HasName michael = new Dozent("Michael");
 
-			data = ui.getStudentData();
+			print(peter);
+			print(michael);
 
-			Student marie = repo.createStudent(data[0], data[1]);
+//			data = ui.getStudentData();
+//
+//			HasName marie = repo.createStudent(data[0], data[1]);
 
-			System.out.println(peter);
-			System.out.println(marie);
+//			System.out.println(peter);
+//			System.out.println(marie);
+		}
+	}
+
+	private static void print(HasName hasName) {
+		System.out.println(hasName);
+		if (hasName instanceof Student) {
+			System.out.println("Hey, das ist ja ein Student!");
 		}
 	}
 

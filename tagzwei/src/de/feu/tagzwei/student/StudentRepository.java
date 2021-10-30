@@ -1,10 +1,11 @@
 package de.feu.tagzwei.student;
 
 import java.util.HashMap;
+import java.util.Map;
 
 public class StudentRepository {
 	private static int count = 1;
-	private static final HashMap<String, Student> VERWALTUNG = new HashMap<>();
+	private static final Map<String, Student> VERWALTUNG = new HashMap<>();
 
 	public Student createStudent(String name, String fachbereich) {
 		String matrikelnummer = createMatrikelnummer(fachbereich);

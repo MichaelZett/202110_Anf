@@ -1,7 +1,8 @@
 package de.feu.tagzwei.student;
 
 public enum Fachbereich {
-	WINF("WIN", "Wirtschaftsinformatik"), INF("INF", "Informatik");
+	WINF("WIN", "Wirtschaftsinformatik"), INF("INF", "Informatik"), //
+	BWL("BWL", "Betriebswirtschaftslehre");
 
 	private String matrikelRep;
 	private String text;
@@ -19,8 +20,13 @@ public enum Fachbereich {
 		return text;
 	}
 
-	static boolean isValid(String string) {
-
+	public static boolean isValid(String string) {
+		Fachbereich[] values = values();
+		for (int i = 0; i < values.length; i++) {
+			if (values[i].matrikelRep.equals(string)) {
+				return true;
+			}
+		}
 		return false;
 	}
 
