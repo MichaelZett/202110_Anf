@@ -1,8 +1,8 @@
 package de.feu.tagzwei.student;
 
 public class Student {
-	private String name;
 	private final String matrikelnummer;
+	private String name;
 
 	public Student(String name, String matrikelnummer) {
 		this.name = name;
@@ -13,12 +13,17 @@ public class Student {
 		return name;
 	}
 
-	void setName(String name) {
+	void updateName(String name) {
 		this.name = name;
 	}
 
 	public String getMatrikelnummer() {
 		return matrikelnummer;
+	}
+
+	@Override
+	public String toString() {
+		return "Student [matrikelnummer=" + matrikelnummer + ", name=" + name + "]";
 	}
 
 }

@@ -6,16 +6,18 @@ public class StudentenVerwaltung {
 
 	public static void main(String[] args) {
 		StudentRepository repo = new StudentRepository();
+		try (StudentUi ui = new StudentUi()) {
+			String[] data = ui.getStudentData();
 
-		StudentUi ui = new StudentUi();
-		String[] data = ui.getStudentData();
+			Student peter = repo.createStudent(data[0], data[1]);
 
-		Student peter = repo.createStudent(data[0], data[1]);
+			data = ui.getStudentData();
 
-		Student marie = repo.createStudent("Marie", FB_INF);
+			Student marie = repo.createStudent(data[0], data[1]);
 
-		System.out.println(peter);
-		System.out.println(marie);
+			System.out.println(peter);
+			System.out.println(marie);
+		}
 	}
 
 }
