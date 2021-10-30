@@ -1,13 +1,16 @@
 package de.feu.tagzwei.student;
 
 public class StudentenVerwaltung {
-	private static final String FB_WINF = "WINF";
+	private static final String FB_WINF = "WIN";
 	private static final String FB_INF = "INF";
 
 	public static void main(String[] args) {
 		StudentRepository repo = new StudentRepository();
 
-		Student peter = repo.createStudent("peter", FB_WINF);
+		StudentUi ui = new StudentUi();
+		String[] data = ui.getStudentData();
+
+		Student peter = repo.createStudent(data[0], data[1]);
 
 		Student marie = repo.createStudent("Marie", FB_INF);
 
