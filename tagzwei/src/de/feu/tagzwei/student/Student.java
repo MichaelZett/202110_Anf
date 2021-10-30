@@ -1,12 +1,13 @@
 package de.feu.tagzwei.student;
 
 public class Student {
-	private static final String FB_WINF = "WINF";
-	private static final String FB_INF = "INF";
-	private static int count = 1;
-
 	private String name;
-	private String matrikelnummer;
+	private final String matrikelnummer;
+
+	public Student(String name, String matrikelnummer) {
+		this.name = name;
+		this.matrikelnummer = matrikelnummer;
+	}
 
 	public String getName() {
 		return name;
@@ -14,8 +15,6 @@ public class Student {
 
 	void setName(String name) {
 		this.name = name;
-		this.matrikelnummer = FB_WINF + "0000000" + count;
-		count++;
 	}
 
 	public String getMatrikelnummer() {

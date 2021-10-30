@@ -1,33 +1,18 @@
 package de.feu.tagzwei.student;
 
-import java.util.HashMap;
-
 public class StudentenVerwaltung {
+	private static final String FB_WINF = "WINF";
+	private static final String FB_INF = "INF";
+
 	public static void main(String[] args) {
-		HashMap<String, Student> verwaltung = new HashMap<>();
+		StudentRepository repo = new StudentRepository();
 
-		Student peter = new Student();
-		peter.setName("Peter");
+		Student peter = repo.createStudent("peter", FB_WINF);
 
-		verwaltung.put(peter.getMatrikelnummer(), peter);
+		Student marie = repo.createStudent("Marie", FB_INF);
 
-		System.out.println(peter.getMatrikelnummer());
-
-		Student marie = new Student();
-		marie.setName("Marie");
-
-		verwaltung.put(marie.getMatrikelnummer(), marie);
-
-		System.out.println(marie.getMatrikelnummer());
-
-		System.out.println("Vorher: " + marie.getName());
-		writeToStudent(marie);
-		System.out.println("Nachher: " + marie.getName());
-	}
-
-	private static void writeToStudent(Student marie) {
-		// write a letter
-		marie.setName("Hackeranriff");
+		System.out.println(peter);
+		System.out.println(marie);
 	}
 
 }
